@@ -1,0 +1,40 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.video {
+    display: flex;
+    align-items: center;
+
+    &__thumbnail {
+        width: 33%;
+        height: 18vw;
+        border-radius: $radius-general;
+        object-fit: cover;
+        object-position: center;
+        margin-right: 1rem;
+    }
+
+    &__info-container {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        margin: 0 0 0.5rem 0;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        @include tablet {
+            font-size: 0.875rem;
+        }
+    }
+
+    &__author {
+        margin: 0;
+        font-size: 0.8125rem;
+        @include tablet {
+            font-size: 0.875rem;
+        }
+    }
+}
+

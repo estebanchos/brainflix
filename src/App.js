@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import VideoCard from './components/VideoCard/VideoCard';
+import videosFullDetails from './data/video-details.json';
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {  } 
+  
+  render() { 
+    return (
+      <ul>
+        <VideoCard 
+          id= "84e96018-4022-434e-80bf-000ce4cd12b8"
+          title= "Become A Travel Pro In One Easy Lesson"
+          channel= "Todd Welch"
+          image= "https://i.imgur.com/5qyCZrD.jpg"
+        />
+      </ul>
+    );
+  }
 }
-
+ 
 export default App;
