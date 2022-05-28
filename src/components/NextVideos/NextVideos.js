@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './NextVideos.scss';
 import videosDetails from '../../data/videos.json';
 import VideoCard from '../VideoCard/VideoCard';
+import * as uid from 'uniqid';
 
 
 class NextVideos extends Component {
@@ -21,10 +22,10 @@ class NextVideos extends Component {
                     {this.state.videos.map(video => {
                         if(video.id !== activeVideo) {
                             return <VideoCard
-                                id={video.id}
                                 title={video.title}
                                 channel={video.channel}
                                 image={video.image}
+                                key={video.id}
                             />
                         }
                     })}

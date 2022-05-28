@@ -2,7 +2,10 @@ import { Component } from 'react';
 import NextVideos from './components/NextVideos/NextVideos';
 import videosFullDetails from './data/video-details.json';
 import './App.scss';
-import CommentCard from './components/CommentCard/CommentCard';
+import CommentList from './components/CommentList/CommentList';
+
+
+const sampleVideo = videosFullDetails[0]
 
 class App extends Component {
   state = {}
@@ -10,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <CommentCard />
+        <CommentList comments={sampleVideo.comments} />
         <NextVideos />
       </>
     );
