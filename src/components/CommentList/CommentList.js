@@ -1,3 +1,4 @@
+import './CommentList.scss';
 import CommentCard from "../CommentCard/CommentCard";
 import * as uid from 'uniqid';
 
