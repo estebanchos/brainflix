@@ -1,0 +1,15 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.avatar {
+    border-radius: $radius-avatar;
+    max-width: $width-avatar-mobile;
+    max-height: $height-avatar-mobile;
+    object-fit: cover;
+    object-position: center;
+
+    @include tablet {
+        max-width: $width-avatar;
+        max-height: $height-avatar;
+    }
+}
