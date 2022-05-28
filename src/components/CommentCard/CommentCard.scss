@@ -1,0 +1,52 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.comment-card {
+    display: flex;
+    border-bottom: 1px solid $color-secondary-grey;
+    border-top: 1px solid $color-secondary-grey;
+    font-size: 0.8125rem;
+    margin: 1rem;
+
+    @include tablet {
+        font-size: 0.875rem;
+    }
+
+    &__avatar {
+        width: 100%;
+        background-color: $color-secondary-grey;
+        border-radius: 50%;
+        max-width: 2.25rem;
+        max-height: 2.25rem;
+        object-fit: cover;
+        object-position: center;
+        margin-top: 1rem;
+
+        @include tablet {
+            max-width: 3rem;
+            max-height: 3rem;
+        }
+    }
+
+    &__content {
+        padding-left: 1rem;
+        margin: 1rem 0;
+        width: 100%;
+    }
+}
+
+.comment-info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+
+    &__author {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    &__date {
+        margin: 0;
+        color: $color-primary-grey;
+    }
+}
