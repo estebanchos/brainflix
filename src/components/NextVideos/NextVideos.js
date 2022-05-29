@@ -10,7 +10,7 @@ class NextVideos extends Component {
     }
 
     render() {
-        const { activeVideo } = this.props
+        const { activeVideo, clickHandler } = this.props
 
         return (
             <section className='next-videos'>
@@ -23,6 +23,7 @@ class NextVideos extends Component {
                                 channel={video.channel}
                                 image={video.image}
                                 key={video.id}
+                                onClick={() => {clickHandler(video)}}
                             />
                         }
                     })}

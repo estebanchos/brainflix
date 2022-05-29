@@ -1,11 +1,11 @@
 import './VideoCard.scss';
 
-const VideoCard = ({ title, channel: author, image }) => {
+const VideoCard = ({ title, channel: author, image, onClick }) => {
     return (
         <li
             className='video'
+            onClick={onClick}
             >
-                 {/* need to implement onClick handler  */}
             <img
                 className='video__thumbnail'
                 src={image}

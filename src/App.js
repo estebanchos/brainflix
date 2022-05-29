@@ -8,8 +8,20 @@ import Header from './components/Header/Header';
 import CurrentInfo from './components/CurrentInfo/CurrentInfo';
 
 class App extends Component {
+
   state = {
     activeVideo: videosFullDetails[0]
+  }
+
+  changeVideo = (newVideo) => {
+    const foundVideo = videosFullDetails.find(video => video.id === newVideo.id);
+    this.setState({
+      activeVideo: foundVideo
+    })
+  }
+
+  addComment = (e) => {
+    e.preventDefault();
   }
 
   render() {
@@ -20,10 +32,10 @@ class App extends Component {
         <main className='main'>
           <section className='main__current-video'>
             <CurrentInfo activeVideo={this.state.activeVideo} />
-            <Comments comments={this.state.activeVideo.comments} />
+            <Comments onSubmit={this.addComment} comments={this.state.activeVideo.comments} />
           </section>
           <aside className='main__side-bar'>
-            <NextVideos activeVideo={this.state.activeVideo.id} />
+            <NextVideos activeVideo={this.state.activeVideo.id} clickHandler={this.changeVideo} />
           </aside>
         </main>
       </>

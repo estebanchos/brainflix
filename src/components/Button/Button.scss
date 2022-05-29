@@ -12,14 +12,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // box-sizing: content-box;
+    cursor: pointer;
 
     @include tablet {
         width: $width-button;
 
     }
 
-    &--hover {
+    &:hover {
         background-color: $color-secondary-blue;
     }
 
