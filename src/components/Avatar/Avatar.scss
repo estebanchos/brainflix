@@ -7,10 +7,11 @@
     max-height: $height-avatar-mobile;
     object-fit: cover;
     object-position: center;
-    margin: 1rem;
+    margin: 1rem 1rem 0 0;
 
     @include tablet {
-        max-width: $width-avatar;
-        max-height: $height-avatar;
+        width: $width-avatar;
+        height: $height-avatar;
+        margin: 0 1rem 0 0;
     }
 }

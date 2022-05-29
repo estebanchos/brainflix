@@ -1,0 +1,62 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.form-container {
+    display: flex;
+
+    @include tablet {
+        align-items: flex-end;
+    }
+}
+
+.new-comment {
+    width: 100%;
+
+    @include tablet {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            margin: 0 1rem 0 0;
+            width: 100%;
+        }
+    }
+
+    &__label {
+        color: $color-primary-grey;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: $padding-form-label-spacing;
+    }
+
+    &__input {
+        border-radius: $radius-general;
+        border: 1px solid $color-secondary-grey;
+        padding: $padding-form-field-mobile;
+        background-color: $color-secondary-white;
+        font-family: 'Avenir';
+        height: 6rem;
+
+        @include tablet {
+            height: 2.75rem;
+        }
+
+        &::placeholder {
+            color: $color-primary-black;
+        }
+
+        &:active {
+            border: 2px solid $color-primary-blue;
+        }
+
+        &--error {
+            border: 1px solid $color-form-error-red;
+        }
+    }
+}

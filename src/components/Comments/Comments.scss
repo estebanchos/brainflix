@@ -1,0 +1,14 @@
+@use '../../styles/partials/mixins' as *;
+
+.comments {
+    margin: 1rem;
+
+    &__title {
+        font-size: 0.8125rem;
+        font-weight: 700;
+
+        @include tablet {
+            font-size: 0.875rem;
+        }
+    }
+}

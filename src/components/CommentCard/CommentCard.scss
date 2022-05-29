@@ -6,7 +6,6 @@
     border-bottom: 1px solid $color-secondary-grey;
     border-top: 1px solid $color-secondary-grey;
     font-size: 0.8125rem;
-    margin: 1rem;
 
     @include tablet {
         font-size: 0.875rem;
@@ -16,15 +15,15 @@
         width: 100%;
         background-color: $color-secondary-grey;
         border-radius: 50%;
-        max-width: 2.25rem;
-        max-height: 2.25rem;
+        max-width: $width-avatar-mobile;
+        max-height: $height-avatar-mobile;
         object-fit: cover;
         object-position: center;
         margin-top: 1rem;
 
         @include tablet {
-            max-width: 3rem;
-            max-height: 3rem;
+            max-width: $width-avatar;
+            max-height: $height-avatar;
         }
     }
 
@@ -33,12 +32,16 @@
         margin: 1rem 0;
         width: 100%;
     }
+
+    &__comment {
+        margin: 0;
+    }
 }
 
 .comment-info {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
 
     &__author {
         margin: 0;
