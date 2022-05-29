@@ -1,0 +1,20 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.search-bar {
+    position: relative;
+    &__icon {
+        position: absolute;
+        top: 33%;
+        left: 0.5rem;
+    }
+
+    &__input {
+        border-radius: $radius-general;
+        border: 1px solid $color-secondary-grey;
+        padding: $padding-form-field-mobile;
+        padding-left: 2rem;
+        background-color: $color-secondary-white;
+        font-family: 'Avenir';
+    }
+}

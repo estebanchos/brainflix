@@ -1,3 +1,14 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
+.header {
+
+    &__logo {
+        height: $height-logo;
+        width: $width-logo;
+    }
+
+    &__container{
+
+    }
+}
