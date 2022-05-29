@@ -10,7 +10,9 @@ import CurrentInfo from './components/CurrentInfo/CurrentInfo';
 const sampleVideo = videosFullDetails[0]
 
 class App extends Component {
-  state = {}
+  state = {
+    activeVideo: videosFullDetails[0]
+  }
 
   render() {
     return (
@@ -20,7 +22,7 @@ class App extends Component {
         <main className='main'>
           <section className='main__current-video'>
             <CurrentInfo />
-            <Comments comments={sampleVideo.comments} />
+            <Comments comments={this.state.activeVideo.comments} />
           </section>
           <aside className='main__side-bar'>
             <NextVideos />
