@@ -3,27 +3,27 @@ import viewIcon from '../../assets/images/icons/views.svg'
 import likeIcon from '../../assets/images/icons/likes.svg'
 import './CurrentInfo.scss';
 
-function CurrentInfo() {
+function CurrentInfo({ activeVideo }) {
     return (
         <article className='current-video__info info'>
-            <h1 className='info__title'>{sampleVideo.title}</h1>
+            <h1 className='info__title'>{activeVideo.title}</h1>
             <div className='info__details details'>
                 <div className='details__meta'>
-                    <p className='details__author'>{`By ${sampleVideo.channel}`}</p>
-                    <p className='details__date'>{dynamicDateFormatter(sampleVideo.timestamp)}</p>
+                    <p className='details__author'>{`By ${activeVideo.channel}`}</p>
+                    <p className='details__date'>{dynamicDateFormatter(activeVideo.timestamp)}</p>
                 </div>
                 <div className='details__stats'>
                     <div className='details__views views'>
                         <img className='views__icon' src={viewIcon} alt='views icon' />
-                        <p className='views__text'>{sampleVideo.views}</p>
+                        <p className='views__text'>{activeVideo.views}</p>
                     </div>
                     <div className='details__likes likes'>
                         <img className='likes__icon' src={likeIcon} alt='likes icon' />
-                        <p className='likes__text'>{sampleVideo.likes}</p>
+                        <p className='likes__text'>{activeVideo.likes}</p>
                     </div>
                 </div>
             </div>
-            <p className='info__description'>{sampleVideo.description}</p>
+            <p className='info__description'>{activeVideo.description}</p>
         </article>
     );
 }

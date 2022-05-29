@@ -7,8 +7,6 @@ import CurrentVideo from './components/CurrentVideo/CurrentVideo';
 import Header from './components/Header/Header';
 import CurrentInfo from './components/CurrentInfo/CurrentInfo';
 
-const sampleVideo = videosFullDetails[0]
-
 class App extends Component {
   state = {
     activeVideo: videosFullDetails[0]
@@ -18,14 +16,14 @@ class App extends Component {
     return (
       <>
         <Header />
-        <CurrentVideo />
+        <CurrentVideo poster={this.state.activeVideo.image} />
         <main className='main'>
           <section className='main__current-video'>
-            <CurrentInfo />
+            <CurrentInfo activeVideo={this.state.activeVideo} />
             <Comments comments={this.state.activeVideo.comments} />
           </section>
           <aside className='main__side-bar'>
-            <NextVideos />
+            <NextVideos activeVideo={this.state.activeVideo.id} />
           </aside>
         </main>
       </>

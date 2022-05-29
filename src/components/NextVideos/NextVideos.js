@@ -2,8 +2,6 @@ import { Component } from 'react';
 import './NextVideos.scss';
 import videosDetails from '../../data/videos.json';
 import VideoCard from '../VideoCard/VideoCard';
-import * as uid from 'uniqid';
-
 
 class NextVideos extends Component {
 
@@ -12,8 +10,7 @@ class NextVideos extends Component {
     }
 
     render() {
-        const activeVideo = "84e96018-4022-434e-80bf-000ce4cd12b8"; // need to update to prop
-        // const { activeVideo } = this.props
+        const { activeVideo } = this.props
 
         return (
             <section className='next-videos'>
