@@ -1,20 +1,28 @@
 import './CurrentVideo.scss';
 import { dynamicDateFormatter } from '../../utils/dataFormater';
+import viewIcon from '../../assets/images/icons/views.svg'
+import likeIcon from '../../assets/images/icons/likes.svg'
 
 function CurrentVideo() {
     return (
         <section className='current-video'>
-            <video className='current-video__video' poster={sampleVideo.image}></video>
+            <video className='current-video__video' poster={sampleVideo.image} controls></video>
             <article className='current-video__info info'>
                 <h1 className='info__title'>{sampleVideo.title}</h1>
                 <div className='info__details details'>
                     <div className='details__meta'>
-                        <p className='details__author'>{sampleVideo.channel}</p>
+                        <p className='details__author'>{`By ${sampleVideo.channel}`}</p>
                         <p className='details__date'>{dynamicDateFormatter(sampleVideo.timestamp)}</p>
                     </div>
                     <div className='details__stats'>
-                        <p className='details__views'>{sampleVideo.views}</p>
-                        <p className='details__likes'>{sampleVideo.likes}</p>
+                        <div className='details__views views'>
+                            <img className='views__icon' src={viewIcon} alt='views icon' />
+                            <p className='views__text'>{sampleVideo.views}</p>
+                        </div>
+                        <div className='details__likes likes'>
+                            <img className='likes__icon' src={likeIcon} alt='likes icon' />
+                            <p className='likes__text'>{sampleVideo.likes}</p>
+                        </div>
                     </div>
                 </div>
                 <p className='info__description'>{sampleVideo.description}</p>

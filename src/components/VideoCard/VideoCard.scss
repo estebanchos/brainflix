@@ -13,6 +13,10 @@
         object-fit: cover;
         object-position: center;
         margin-right: 1rem;
+        @include tablet {
+            width: 8.4rem;
+            height: 5.3rem;
+        }
     }
 
     &__info-container {
