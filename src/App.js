@@ -32,7 +32,7 @@ class App extends Component {
         <main className='main'>
           <section className='main__current-video'>
             <CurrentInfo activeVideo={this.state.activeVideo} />
-            <Comments onSubmit={this.addComment} comments={this.state.activeVideo.comments} />
+            <Comments clickHandler={this.addComment} comments={this.state.activeVideo.comments} />
           </section>
           <aside className='main__side-bar'>
             <NextVideos activeVideo={this.state.activeVideo.id} clickHandler={this.changeVideo} />
