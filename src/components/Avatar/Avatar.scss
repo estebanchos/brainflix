@@ -8,6 +8,23 @@
     object-fit: cover;
     object-position: center;
     margin: 1rem 1rem 0 0;
+    aspect-ratio: 1/1;
+
+    @include tablet {
+        width: $width-avatar;
+        height: $height-avatar;
+        margin: 0 1rem 0 0;
+    }
+}
+
+.header__avatar {
+    border-radius: $radius-avatar;
+    max-width: $width-avatar-mobile;
+    max-height: $height-avatar-mobile;
+    object-fit: cover;
+    object-position: center;
+    margin: 1rem 1rem 0 0;
+    aspect-ratio: 1/1;
 
     @include tablet {
         width: $width-avatar;

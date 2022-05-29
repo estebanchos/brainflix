@@ -15,7 +15,6 @@ class App extends Component {
   render() {
     return (
       <>
-        <SearchBar />
         <Header />
         <CurrentVideo />
         <Comments comments={sampleVideo.comments} />

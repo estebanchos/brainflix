@@ -1,9 +1,9 @@
 import './Avatar.scss';
 import avatar from '../../assets/images/mohan-muruge.jpg'
 
-function Avatar() {
+function Avatar({ className }) {
     return ( 
-        <img className='avatar' src={avatar} alt='user avatar' />
+        <img className={!className ? 'avatar' : 'header__avatar'} src={avatar} alt='user avatar' />
      );
 }
 

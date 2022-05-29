@@ -3,18 +3,30 @@
 
 .search-bar {
     position: relative;
+    margin-bottom: 1rem;
+
+    @include tablet {
+        margin: 0;
+    }
+
     &__icon {
         position: absolute;
         top: 33%;
-        left: 0.5rem;
+        left: 0.75rem;
     }
 
     &__input {
         border-radius: $radius-general;
         border: 1px solid $color-secondary-grey;
         padding: $padding-form-field-mobile;
-        padding-left: 2rem;
+        padding-left: 2.25rem;
         background-color: $color-secondary-white;
         font-family: 'Avenir';
+        width: 80%;
+
+        @include tablet {
+            width: 12.5rem;
+            margin-right: 1rem;
+        }
     }
 }

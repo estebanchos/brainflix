@@ -12,7 +12,7 @@ function Header() {
             <img className='header__logo' src={logo} alt='brainflix logo' />
             <div className='header__container'>
                 <SearchBar />
-                <Avatar />
+                <Avatar className='header__avatar' />
                 <Button icon={uploadIcon} action='UPLOAD' />
             </div>
         </header>
