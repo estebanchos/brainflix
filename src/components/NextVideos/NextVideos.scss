@@ -6,7 +6,7 @@
 
     @include tablet {
         margin: 1rem 2.25rem;
-        
+
     }
 
     &__title {
@@ -18,6 +18,10 @@
         @include tablet {
             font-size: 0.875rem;
         }
+
+        @include desktop {
+            margin-bottom: 1.5rem;
+        }
     }
 
     &__list {
@@ -26,6 +30,10 @@
 
         @include tablet {
             width: 50%;
+        }
+
+        @include desktop {
+            width: 100%;
         }
     }
 }

@@ -7,6 +7,10 @@
     @include tablet {
         align-items: flex-end;
     }
+
+    @include desktop {
+        margin-right: 2.25rem;
+    }
 }
 
 .new-comment {

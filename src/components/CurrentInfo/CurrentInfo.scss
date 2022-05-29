@@ -1,0 +1,117 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.info {
+    @include desktop {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 2rem;
+
+        @include tablet {
+            font-size: 2.0625rem;
+            line-height: 2.75rem;
+        }
+
+        @include desktop {
+            margin-bottom: 0;
+        }
+    }
+
+    &__details {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid $color-secondary-grey;
+        border-bottom: 1px solid $color-secondary-grey;
+        padding: 1rem 0;
+
+        @include tablet {
+            border-top: 0;
+        }
+    }
+
+    &__description {
+        @include desktop {
+            margin-right: 2.25rem;
+        }
+    }
+}
+
+.details {
+    font-weight: 700;
+
+    &__meta {
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__stats {
+        margin-right: 2.5rem;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__author {
+        margin: 0;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            margin-bottom: 0;
+            margin-right: 2rem;
+        }
+    }
+
+    &__date {
+        margin: 0;
+        color: $color-primary-grey;
+    }
+
+    &__views {
+        display: flex;
+        color: $color-primary-grey;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            margin-bottom: 0;
+            margin-right: 2rem;
+        }
+    }
+
+    &__likes {
+        display: flex;
+        color: $color-primary-grey;
+        align-items: center;
+    }
+}
+
+.views {
+    &__icon {
+        margin-right: 0.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    &__text {
+        margin: 0;
+    }
+}
+
+.likes {
+    &__icon {
+        margin-right: 0.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    &__text {
+        margin: 0;
+    }
+}

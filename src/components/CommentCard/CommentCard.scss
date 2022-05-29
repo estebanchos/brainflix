@@ -10,6 +10,10 @@
     @include tablet {
         font-size: 0.875rem;
     }
+    @include desktop {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 
     &__avatar {
         width: 100%;
@@ -31,6 +35,10 @@
         padding-left: 1rem;
         margin: 1rem 0;
         width: 100%;
+        @include desktop {
+            padding-right: 2.25rem;
+            padding-left: 2rem;
+        }
     }
 
     &__comment {

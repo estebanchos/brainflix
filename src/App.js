@@ -5,7 +5,7 @@ import './App.scss';
 import Comments from './components/Comments/Comments';
 import CurrentVideo from './components/CurrentVideo/CurrentVideo';
 import Header from './components/Header/Header';
-import SearchBar from './components/SearchBar/SearchBar';
+import CurrentInfo from './components/CurrentInfo/CurrentInfo';
 
 const sampleVideo = videosFullDetails[0]
 
@@ -17,8 +17,15 @@ class App extends Component {
       <>
         <Header />
         <CurrentVideo />
-        <Comments comments={sampleVideo.comments} />
-        <NextVideos />
+        <main className='main'>
+          <section className='main__current-video'>
+            <CurrentInfo />
+            <Comments comments={sampleVideo.comments} />
+          </section>
+          <aside className='main__side-bar'>
+            <NextVideos />
+          </aside>
+        </main>
       </>
     );
   }

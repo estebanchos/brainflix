@@ -16,7 +16,7 @@
 
     @include tablet {
         width: $width-button;
-        
+
     }
 
     &--hover {
@@ -27,6 +27,12 @@
         position: absolute;
         top: 0.6rem;
         left: 0.6rem;
+
+        @include tablet {
+            height: 1rem;
+            width: 1rem;
+            top: 0.8rem;
+        }
     }
 
     &__text {
