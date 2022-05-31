@@ -1,0 +1,139 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+
+.main-upload {
+    padding: 0 1rem;
+    border-top: 1px solid $color-primary-grey;
+
+    @include tablet {
+        padding: 1rem 2.25rem;
+    }
+
+    @include desktop {
+        padding: 0 3.75rem;
+        // margin: 0 3.75rem;
+    }
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+
+    @include tablet {
+        font-size: 2.0625rem;
+        line-height: 2.75rem;
+        margin-bottom: 2rem;
+    }
+
+    @include desktop {
+        margin: 2rem 1.5rem;
+    }
+}
+
+.upload-video {
+
+    &__inputs-container {
+        @include tablet {
+            border-top: 1px solid $color-primary-grey;
+            border-bottom: 1px solid $color-primary-grey;
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+        }
+        @include desktop {
+            margin: 2rem 1.5rem;
+            display: flex;
+        }
+    }
+
+    &__image-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        @include desktop {
+            width: 35%;
+            margin-right: 2rem;
+        }
+    }
+
+    &__text-container {
+        @include desktop {
+            width: 65%;
+        }
+    }
+
+    &__title-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    &__description-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    &__actions-container {
+        margin: 1.5rem 0;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+
+    &__label {
+        color: $color-primary-grey;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: $padding-form-label-spacing;
+    }
+
+    &__image-input {}
+
+    &__text-input {
+        border-radius: $radius-general;
+        border: 1px solid $color-secondary-grey;
+        padding: $padding-form-field-mobile;
+        background-color: $color-secondary-white;
+        font-family: 'Avenir';
+
+        &::placeholder {
+            color: $color-primary-black;
+        }
+
+        &:active {
+            border: 2px solid $color-primary-blue;
+        }
+
+        &--error {
+            border: 1px solid $color-form-error-red;
+        }
+    }
+
+    &__cancel-button {
+        background-color: $color-primary-white;
+        color: $color-primary-blue;
+        height: $height-button;
+        width: 100%;
+        border-radius: $radius-general;
+        border: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-top: 1.5rem;
+
+        @include tablet {
+            width: $width-button;
+            margin-top: 0;
+            margin-right: 2rem;
+        }
+
+        &:hover {
+            background-color: $color-secondary-blue;
+        }
+    }
+}

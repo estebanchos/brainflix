@@ -1,10 +1,10 @@
 import { Component } from 'react';
-import NextVideos from './components/NextVideos/NextVideos';
 import videosFullDetails from './data/video-details.json';
 import './App.scss';
 import Header from './components/Header/Header';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import VideoPage from './pages/VideoPage/VideoPage';
+import UploadVideoPage from './pages/UploadVideoPage/UploadVideoPage';
 
 
 class App extends Component {
@@ -35,6 +35,7 @@ class App extends Component {
           comments={this.state.activeVideo.comments}
           changeVideoHandler={this.changeVideo}
         />
+        <UploadVideoPage />
       </>
     );
   }

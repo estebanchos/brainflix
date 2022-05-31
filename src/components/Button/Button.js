@@ -1,5 +1,4 @@
 import './Button.scss';
-import addComment from '../../assets/images/icons/add-comment.svg'
 
 function Button({ icon, action }) {
     return ( 
