@@ -1,0 +1,23 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.main {
+  @include desktop {
+    display: flex;
+    margin-right: 3.75rem;
+    margin-left: 3.75rem;
+  }
+
+  &__current-video {
+    @include desktop {
+      width: 66%;
+      border-right: 1px solid $color-primary-grey;
+    }
+  }
+
+  &__side-bar {
+    @include desktop {
+      width: 34%;
+    }
+  }
+}
