@@ -6,6 +6,8 @@ import Comments from './components/Comments/Comments';
 import CurrentVideo from './components/CurrentVideo/CurrentVideo';
 import Header from './components/Header/Header';
 import CurrentInfo from './components/CurrentInfo/CurrentInfo';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 
 class App extends Component {
 
