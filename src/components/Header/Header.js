@@ -1,17 +1,14 @@
-
+import './Header.scss';
 import logo from '../../assets/images/logo/brainflix-logo.svg';
 import uploadIcon from '../../assets/images/icons/upload.svg';
 import Avatar from '../Avatar/Avatar';
 import SearchBar from '../SearchBar/SearchBar';
-import './Header.scss';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 
 function Header() {
     return (
         <header className='header'>
-            {/* <NavLink */}
             <Link to='/'>
                 <img className='header__logo' src={logo} alt='brainflix logo' />
             </Link>

@@ -7,7 +7,7 @@ function Comments({ comments, clickHandler }) {
     return ( 
         <section className="comments">
             <h3 className="comments__title">
-                {`${comments.length} Comments`}
+                {!comments ? "..." : comments.length + " Comments"}
                 </h3>
             <Form clickHandler={clickHandler} />
             <CommentList comments={comments} />
