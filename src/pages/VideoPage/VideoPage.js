@@ -4,7 +4,7 @@ import CurrentVideo from '../../components/CurrentVideo/CurrentVideo';
 import CurrentInfo from '../../components/CurrentInfo/CurrentInfo';
 import NextVideos from '../../components/NextVideos/NextVideos';
 
-function VideoPage({ poster, activeVideo, addCommentHandler, comments, changeVideoHandler }) {
+function VideoPage({ poster, activeVideo, addCommentHandler, comments, changeVideoHandler, videos }) {
     return (
         <>
             <CurrentVideo poster={poster} />
@@ -14,7 +14,7 @@ function VideoPage({ poster, activeVideo, addCommentHandler, comments, changeVid
                     <Comments clickHandler={addCommentHandler} comments={comments} />
                 </section>
                 <aside className='main__side-bar'>
-                    <NextVideos activeVideo={activeVideo.id} clickHandler={changeVideoHandler} />
+                    <NextVideos activeVideo={activeVideo.id} videos={videos} clickHandler={changeVideoHandler} />
                 </aside>
             </main>
         </>
