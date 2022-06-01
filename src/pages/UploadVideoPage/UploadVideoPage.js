@@ -1,6 +1,7 @@
 import Button from '../../components/Button/Button';
 import './UploadVideoPage.scss';
 import publishIcon from '../../assets/images/icons/publish.svg';
+import uploadPreview from '../../assets/images/upload-video-preview.jpg';
 
 function UploadVideoPage() {
     return (
@@ -10,7 +11,7 @@ function UploadVideoPage() {
                 <div className='upload-video__inputs-container'>
                     <div className='upload-video__image-container'>
                         <label className='upload-video__label' htmlFor='image' >VIDEO THUMBNAIL</label>
-                        <input className='upload-video__image-input' name='image' id='image' />
+                        <img className='upload-video__image' src={uploadPreview} alt='preview thumbnail' />
                     </div>
                     <div className='upload-video__text-container'>
                         <div className='upload-video__title-container'>

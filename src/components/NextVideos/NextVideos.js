@@ -10,6 +10,8 @@ class NextVideos extends Component {
         videos: videosDetails
     }
 
+    
+
     render() {
         const { activeVideo, clickHandler } = this.props
 

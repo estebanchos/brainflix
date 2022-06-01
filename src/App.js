@@ -12,19 +12,25 @@ class App extends Component {
   state = {
     activeVideo: videosFullDetails[0]
   }
-
   changeVideo = (newVideo) => {
     const foundVideo = videosFullDetails.find(video => video.id === newVideo.id);
     this.setState({
       activeVideo: foundVideo
     })
   }
-
+  
   addComment = (e) => {
     e.preventDefault();
   }
-
+  
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps)
+    console.log(prevState)
+    console.log(this.match)
+  }
+  
   render() {
+    const { match } = this.props;
     return (
       <>
         <Router>
@@ -40,13 +46,14 @@ class App extends Component {
                 {...routerProps}
               />} />
             <Route path='/upload-video' render={() => <UploadVideoPage />} />
-            <Route path='video-:id' render={() =>
+            <Route path='video-:id' render={(routerProps) =>
               <VideoPage
                 poster={this.state.activeVideo.image}
                 activeVideo={this.state.activeVideo}
                 addCommentHandler={this.addComment}
                 comments={this.state.activeVideo.comments}
                 changeVideoHandler={this.changeVideo}
+                {...routerProps}
               />} />
           </Switch>
         </Router>

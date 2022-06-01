@@ -4,8 +4,9 @@
 .main {
   @include desktop {
     display: flex;
-    margin-right: 3.75rem;
-    margin-left: 3.75rem;
+    max-width: 80rem;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   &__current-video {

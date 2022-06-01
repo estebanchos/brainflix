@@ -2,17 +2,26 @@
 @use '../../styles/partials/mixins' as *;
 
 .current-video {
+    @include desktop {
+        background-color: $color-secondary-black;
+        display: flex;
+        justify-content: center;
+    }
 
     &__video {
         width: 100%;
         aspect-ratio: 16/9;
+
+        @include desktop {
+            max-width: 60rem;  
+        }
     }
 
     &__info {
         margin: 1rem;
+
         @include tablet {
             margin: 1rem 2.25rem;
         }
     }
 }
-
