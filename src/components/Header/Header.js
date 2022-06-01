@@ -5,15 +5,22 @@ import Avatar from '../Avatar/Avatar';
 import SearchBar from '../SearchBar/SearchBar';
 import './Header.scss';
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
     return (
         <header className='header'>
-            <img className='header__logo' src={logo} alt='brainflix logo' />
+            {/* <NavLink */}
+            <Link to='/'>
+                <img className='header__logo' src={logo} alt='brainflix logo' />
+            </Link>
             <div className='header__container'>
                 <SearchBar />
                 <Avatar className='header__avatar' />
-                <Button icon={uploadIcon} action='UPLOAD' />
+                <Link className='header__upload-button' to='/upload-video'>
+                    <Button icon={uploadIcon} action='UPLOAD' />
+                </Link>
             </div>
         </header>
     );

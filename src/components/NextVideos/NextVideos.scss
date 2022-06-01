@@ -36,4 +36,8 @@
             width: 100%;
         }
     }
+    &__item {
+        text-decoration: none;
+        color: $color-primary-black;
+    }
 }

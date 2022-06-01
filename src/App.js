@@ -27,15 +27,29 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header />
-        <VideoPage
-          poster={this.state.activeVideo.image}
-          activeVideo={this.state.activeVideo}
-          addCommentHandler={this.addComment}
-          comments={this.state.activeVideo.comments}
-          changeVideoHandler={this.changeVideo}
-        />
-        <UploadVideoPage />
+        <Router>
+          <Header />
+          <Switch>
+            <Route path='/' exact render={(routerProps) =>
+              <VideoPage
+                poster={videosFullDetails[0].image}
+                activeVideo={videosFullDetails[0]}
+                addCommentHandler={this.addComment}
+                comments={videosFullDetails[0].comments}
+                changeVideoHandler={this.changeVideo}
+                {...routerProps}
+              />} />
+            <Route path='/upload-video' render={() => <UploadVideoPage />} />
+            <Route path='video-:id' render={() =>
+              <VideoPage
+                poster={this.state.activeVideo.image}
+                activeVideo={this.state.activeVideo}
+                addCommentHandler={this.addComment}
+                comments={this.state.activeVideo.comments}
+                changeVideoHandler={this.changeVideo}
+              />} />
+          </Switch>
+        </Router>
       </>
     );
   }
