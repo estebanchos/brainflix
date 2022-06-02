@@ -11,12 +11,24 @@ class VideoPage extends Component {
     state = {
         activeVideo: {},
         videos: [], 
-        defaultVideoId: {}
+        defaultVideoId: ''
     }
 
     addComment = (e) => {
         e.preventDefault();
 
+    }
+
+    getActiveVideo = (url) => {
+        axios.get(url)
+            .then(res => {
+                this.setState({
+                    activeVideo: res.data
+                })
+            })
+            .catch(err => {
+                console.error('could not update: ' + err)
+            })
     }
 
     componentDidMount() {
@@ -26,13 +38,15 @@ class VideoPage extends Component {
                     videos: res.data,
                     defaultVideoId: res.data[0].id
                 })
-                const id = res.data[0].id;
-                axios.get(videosUrl + '/' + id + apiKey)
-                    .then(res => {
-                        this.setState({
-                            activeVideo: res.data
-                        })
-                    })
+                // adding default value for id 
+                const id = this.props.match.params.id || res.data[0].id;
+                this.getActiveVideo(videosUrl + '/' + id + apiKey)
+                // axios.get(videosUrl + '/' + id + apiKey)
+                //     .then(res => {
+                //         this.setState({
+                //             activeVideo: res.data
+                //         })
+                //     })
             })
             .catch(err => {
                 console.error('could not complete request:' + err)
@@ -43,30 +57,36 @@ class VideoPage extends Component {
         const { match: { params: { id } } } = this.props
         const { match: { url } } = this.props
         const { defaultVideoId } = this.state
+        const prevId = prevProps.match.params.id
+        // ---- if we return to homepage we get our default video id
+        const activeId = id || defaultVideoId
         
-        if (url === '/' && this.state.activeVideo !== defaultVideoId) {
-            axios.get(videosUrl + '/' + defaultVideoId + apiKey)
-            .then(res => {
-                this.setState({
-                    activeVideo: res.data
-                })
-            })
-            .catch(err => {
-                console.error('could not update: ' + err)
-            })
-            return
-        }
+        // if (url === '/' && this.state.activeVideo !== defaultVideoId) {
+        //     if (url === '/') {
+        //     this.getActiveVideo(`${videosUrl}/${defaultVideoId}${apiKey}`);
+            // axios.get(videosUrl + '/' + defaultVideoId + apiKey)
+            // .then(res => {
+            //     this.setState({
+            //         activeVideo: res.data
+            //     })
+            // })
+            // .catch(err => {
+            //     console.error('could not update: ' + err)
+            // })
+            // return
+        // }
 
-        if(prevProps.match.params.id !== id) {
-            axios.get(videosUrl + '/' + id + apiKey)
-            .then(res => {
-                this.setState({
-                    activeVideo: res.data
-                })
-            })
-            .catch(err => {
-                console.error('could not update: ' + err)
-            })
+        if(prevId !== activeId) {
+            this.getActiveVideo(`${videosUrl}/${activeId}${apiKey}`);
+            // axios.get(videosUrl + '/' + id + apiKey)
+            // .then(res => {
+            //     this.setState({
+            //         activeVideo: res.data
+            //     })
+            // })
+            // .catch(err => {
+            //     console.error('could not update: ' + err)
+            // })
         }
     }
 
