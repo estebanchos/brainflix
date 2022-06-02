@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 function Header() {
     return (
         <header className='header'>
-            <Link to='/'>
+            <Link  className='header__link' to='/'>
                 <img className='header__logo' src={logo} alt='brainflix logo' />
             </Link>
             <div className='header__container'>
