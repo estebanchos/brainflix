@@ -18,6 +18,9 @@
             margin-bottom: 0;
         }
 
+        @include desktop {
+            margin-right: 2.25rem;
+        }
     }
 
     &__details {
