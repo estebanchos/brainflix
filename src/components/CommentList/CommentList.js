@@ -3,7 +3,6 @@ import CommentCard from "../CommentCard/CommentCard";
 
 function CommentList({ comments }) {
     if (!comments) return "..."
-    console.log(comments)
     return (
         <div className="comments__gallery">
             {comments.map(comment =>

@@ -10,7 +10,8 @@ import { apiKey, videosUrl } from '../../utils/api';
 class VideoPage extends Component {
     state = {
         activeVideo: {},
-        videos: []
+        videos: [], 
+        defaultVideoId: {}
     }
 
     addComment = (e) => {
@@ -22,7 +23,8 @@ class VideoPage extends Component {
         axios.get(videosUrl + apiKey)
             .then(res => {
                 this.setState({
-                    videos: res.data
+                    videos: res.data,
+                    defaultVideoId: res.data[0].id
                 })
                 const id = res.data[0].id;
                 axios.get(videosUrl + '/' + id + apiKey)
@@ -39,6 +41,22 @@ class VideoPage extends Component {
 
     componentDidUpdate(prevProps) {
         const { match: { params: { id } } } = this.props
+        const { match: { url } } = this.props
+        const { defaultVideoId } = this.state
+        
+        if (url === '/' && this.state.activeVideo !== defaultVideoId) {
+            axios.get(videosUrl + '/' + defaultVideoId + apiKey)
+            .then(res => {
+                this.setState({
+                    activeVideo: res.data
+                })
+            })
+            .catch(err => {
+                console.error('could not update: ' + err)
+            })
+            return
+        }
+
         if(prevProps.match.params.id !== id) {
             axios.get(videosUrl + '/' + id + apiKey)
             .then(res => {
