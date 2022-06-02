@@ -10,7 +10,7 @@ import { apiKey, videosUrl } from '../../utils/api';
 class VideoPage extends Component {
     state = {
         activeVideo: {},
-        videos: [], 
+        videos: [],
         defaultVideoId: ''
     }
 
@@ -38,15 +38,8 @@ class VideoPage extends Component {
                     videos: res.data,
                     defaultVideoId: res.data[0].id
                 })
-                // adding default value for id 
                 const id = this.props.match.params.id || res.data[0].id;
                 this.getActiveVideo(videosUrl + '/' + id + apiKey)
-                // axios.get(videosUrl + '/' + id + apiKey)
-                //     .then(res => {
-                //         this.setState({
-                //             activeVideo: res.data
-                //         })
-                //     })
             })
             .catch(err => {
                 console.error('could not complete request:' + err)
@@ -54,39 +47,13 @@ class VideoPage extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { match: { params: { id } } } = this.props
-        const { match: { url } } = this.props
-        const { defaultVideoId } = this.state
-        const prevId = prevProps.match.params.id
-        // ---- if we return to homepage we get our default video id
-        const activeId = id || defaultVideoId
-        
-        // if (url === '/' && this.state.activeVideo !== defaultVideoId) {
-        //     if (url === '/') {
-        //     this.getActiveVideo(`${videosUrl}/${defaultVideoId}${apiKey}`);
-            // axios.get(videosUrl + '/' + defaultVideoId + apiKey)
-            // .then(res => {
-            //     this.setState({
-            //         activeVideo: res.data
-            //     })
-            // })
-            // .catch(err => {
-            //     console.error('could not update: ' + err)
-            // })
-            // return
-        // }
+        const { match: { params: { id } } } = this.props;
+        const { defaultVideoId } = this.state;
+        const prevId = prevProps.match.params.id;
 
-        if(prevId !== activeId) {
+        if (prevId !== id) {
+            const activeId = id ? id : defaultVideoId;
             this.getActiveVideo(`${videosUrl}/${activeId}${apiKey}`);
-            // axios.get(videosUrl + '/' + id + apiKey)
-            // .then(res => {
-            //     this.setState({
-            //         activeVideo: res.data
-            //     })
-            // })
-            // .catch(err => {
-            //     console.error('could not update: ' + err)
-            // })
         }
     }
 
