@@ -1,9 +1,10 @@
 import './SuccessfulSubmit.scss'
 
-function SuccessfulSubmit() {
+function SuccessfulSubmit({ title }) {
     return ( 
         <div className='success'>
-            <p className='success__message'>Successful Upload!</p>
+            <p className='success__title'>{title}</p>
+            <p className='success__message'>Successfully Uploaded!</p>
             <p className='success__message'>Returning to homepage...</p>
         </div>
      );

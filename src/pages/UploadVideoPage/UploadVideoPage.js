@@ -54,7 +54,7 @@ class UploadVideoPage extends Component {
             this.setState({
                 submitted: true
             })
-            setTimeout(() => this.returnHome(), 1500);
+            setTimeout(() => this.returnHome(), 2000);
         } else {
             !e.target.title.value ? this.titleIsInvalid() : this.titleIsValid();
             !e.target.description.value ? this.descriptionIsInvalid() : this.descriptionIsValid();
@@ -71,7 +71,6 @@ class UploadVideoPage extends Component {
     render() {
         return (
             <main className='main-upload'>
-                {this.state.submitted ? <SuccessfulSubmit /> : ''}
                 <h1 className='page-title'>Upload Video</h1>
                 <form className='upload-video' onSubmit={this.handleSubmit}>
                     <div className='upload-video__inputs-container'>
@@ -105,6 +104,7 @@ class UploadVideoPage extends Component {
                             </div>
                         </div>
                     </div>
+                    {this.state.submitted ? <SuccessfulSubmit title={this.state.title} /> : ''}
                     <div className='upload-video__actions-container'>
                         <Button icon={publishIcon} action='PUBLISH' />
                         <button className='upload-video__cancel-button' onClick={this.returnHome}>CANCEL</button>
