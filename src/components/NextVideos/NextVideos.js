@@ -3,6 +3,10 @@ import VideoCard from '../VideoCard/VideoCard';
 import { Link } from 'react-router-dom';
 
 function NextVideos({ activeVideoId, videos }) {
+    const  returnToTop = () => {
+        window.scrollTo(0, 0)
+    }
+
     return (
         <section className='next-videos'>
             <h3 className='next-videos__title'>NEXT VIDEOS</h3>
@@ -14,6 +18,7 @@ function NextVideos({ activeVideoId, videos }) {
                                 className='next-videos__item'
                                 to={'/video/' + video.id}
                                 key={video.id}
+                                onClick={returnToTop}
                             >
                                 <VideoCard
                                     title={video.title}

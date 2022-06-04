@@ -14,23 +14,6 @@ class VideoPage extends Component {
         defaultVideoId: ''
     }
 
-    addComment = (e) => {
-        e.preventDefault();
-
-    }
-
-    getActiveVideo = (url) => {
-        axios.get(url)
-            .then(res => {
-                this.setState({
-                    activeVideo: res.data
-                })
-            })
-            .catch(err => {
-                console.error('could not update: ' + err)
-            })
-    }
-
     componentDidMount() {
         axios.get(videosUrl + apiKey)
             .then(res => {
@@ -55,7 +38,35 @@ class VideoPage extends Component {
             const activeId = id ? id : defaultVideoId;
             this.getActiveVideo(`${videosUrl}/${activeId}${apiKey}`);
         }
-        window.scrollTo(0,0)
+    }
+
+    addComment = (e) => {
+        e.preventDefault();
+
+    }
+
+    deleteComment = (e) => {
+        const activeId = this.state.activeVideo.id
+        console.log(`${videosUrl}/${activeId}/comments/${e.target.id}${apiKey}`)
+        axios.delete(`${videosUrl}/${activeId}/comments/${e.target.id}${apiKey}`)
+            .then(res => {
+                this.getActiveVideo(videosUrl + '/' + activeId + apiKey)
+            })
+            .catch(err => {
+                console.error("Unable to delete comment:", err)
+            })
+    }
+
+    getActiveVideo = (url) => {
+        axios.get(url)
+            .then(res => {
+                this.setState({
+                    activeVideo: res.data
+                })
+            })
+            .catch(err => {
+                console.error('could not update: ' + err)
+            })
     }
 
     render() {
@@ -67,7 +78,7 @@ class VideoPage extends Component {
                 <main className='main'>
                     <section className='main__current-video'>
                         <CurrentInfo activeVideo={activeVideo} />
-                        <Comments clickHandler={this.addComment} comments={activeVideo.comments} />
+                        <Comments addComment={this.addComment} deleteComment={this.deleteComment} comments={activeVideo.comments} />
                     </section>
                     <aside className='main__side-bar'>
                         <NextVideos activeVideoId={activeVideo.id} videos={videos} />

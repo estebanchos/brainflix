@@ -2,7 +2,7 @@ import './CommentCard.scss';
 import { dynamicDateFormatter } from '../../utils/dataFormater';
 import deleteIcon from '../../assets/images/icons/delete.svg'
 
-function CommentCard({ name, timestamp, comment, key }) { 
+function CommentCard({ name, timestamp, comment, id, deleteComment }) { 
     return (
         <article className='comment-card'>
             <img className='comment-card__avatar' src='' />
@@ -13,7 +13,7 @@ function CommentCard({ name, timestamp, comment, key }) {
                 </div>
                 <p className='comment-card__comment'>{comment}</p>
                 <div className='comment-card__actions'>
-                    <img className='comment-card__delete' src={deleteIcon} alt='button to delete comment' id={key} />
+                    <img className='comment-card__delete' src={deleteIcon} alt='button to delete comment' id={id} onClick={deleteComment} />
                 </div>
             </div>
         </article>
