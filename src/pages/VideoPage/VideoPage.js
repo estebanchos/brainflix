@@ -40,14 +40,8 @@ class VideoPage extends Component {
         }
     }
 
-    addComment = (e) => {
-        e.preventDefault();
-
-    }
-
     deleteComment = (e) => {
         const activeId = this.state.activeVideo.id
-        console.log(`${videosUrl}/${activeId}/comments/${e.target.id}${apiKey}`)
         axios.delete(`${videosUrl}/${activeId}/comments/${e.target.id}${apiKey}`)
             .then(res => {
                 this.getActiveVideo(videosUrl + '/' + activeId + apiKey)
@@ -78,7 +72,12 @@ class VideoPage extends Component {
                 <main className='main'>
                     <section className='main__current-video'>
                         <CurrentInfo activeVideo={activeVideo} />
-                        <Comments addComment={this.addComment} deleteComment={this.deleteComment} comments={activeVideo.comments} />
+                        <Comments
+                            refreshComments={this.getActiveVideo}
+                            activeVideoId={activeVideo.id}
+                            deleteComment={this.deleteComment}
+                            comments={activeVideo.comments}
+                        />
                     </section>
                     <aside className='main__side-bar'>
                         <NextVideos activeVideoId={activeVideo.id} videos={videos} />

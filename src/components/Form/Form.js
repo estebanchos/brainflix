@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import addIcon from '../../assets/images/icons/add-comment.svg'
 import './Form.scss';
 import { Component } from 'react';
+import { apiKey, videosUrl } from '../../utils/api';
 import axios from 'axios';
 
 class Form extends Component {
@@ -34,16 +35,29 @@ class Form extends Component {
     }
 
     handleSubmit = (e) => {
+        const { refreshComments, activeVideoId } = this.props
+        const postUrl = `${videosUrl}/${activeVideoId}/comments${apiKey}`
         e.preventDefault()
         if (this.isFormValid()) {
-            // axios here
+            axios.post(postUrl, {
+                name: 'test',
+                comment: this.state.comment
+            })
+            .then(res => {
+                refreshComments(videosUrl + '/' + activeVideoId + apiKey)
+                e.target[0].value = ''
+                this.setState({
+                    comment: ''
+                })
+            })
+            .catch(err => {
+                console.error('unable to post comment', err)
+            })
         } else {
             this.inputIsInvalid()
         }
     }
-
     render() {
-        // const { addComment } = this.props
         return (
             <article className='form-container'>
                 <Avatar />
@@ -59,7 +73,7 @@ class Form extends Component {
                         >
                         </textarea>
                     </div>
-                    <Button icon={addIcon} action="COMMENT" />
+                    <Button icon={addIcon} action="COMMENT" onClick={this.resetForm} />
                 </form>
             </article>
         );
