@@ -55,6 +55,7 @@ class VideoPage extends Component {
             const activeId = id ? id : defaultVideoId;
             this.getActiveVideo(`${videosUrl}/${activeId}${apiKey}`);
         }
+        window.scrollTo(0,0)
     }
 
     render() {
