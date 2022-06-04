@@ -44,6 +44,13 @@ class UploadVideoPage extends Component {
         })
     }
 
+    isFormValid = () => {
+        if (!this.state.title || !this.state.description) {
+            return false
+        }
+        return true
+    }
+
     returnHome = () => {
         this.props.history.push('/')
     }
@@ -59,13 +66,6 @@ class UploadVideoPage extends Component {
             !e.target.title.value ? this.titleIsInvalid() : this.titleIsValid();
             !e.target.description.value ? this.descriptionIsInvalid() : this.descriptionIsValid();
         }
-    }
-
-    isFormValid = () => {
-        if (!this.state.title || !this.state.description) {
-            return false
-        }
-        return true
     }
 
     render() {
