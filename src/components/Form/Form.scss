@@ -61,6 +61,11 @@
 
         &--error {
             border: 1px solid $color-form-error-red;
+            padding: $padding-form-field-mobile;
+            border-radius: $radius-general;
+            background-color: $color-secondary-white;
+            font-family: 'Avenir';
+            height: 2.75rem;
         }
     }
 }
