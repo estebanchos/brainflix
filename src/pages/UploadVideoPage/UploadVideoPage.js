@@ -4,6 +4,8 @@ import publishIcon from '../../assets/images/icons/publish.svg';
 import uploadPreview from '../../assets/images/upload-video-preview.jpg';
 import { Component } from 'react';
 import SuccessfulSubmit from '../../components/SuccessfulSubmit/SuccessfulSubmit';
+import axios from 'axios';
+import { videosUrl } from '../../utils/api';
 
 class UploadVideoPage extends Component {
     state = {
@@ -61,7 +63,17 @@ class UploadVideoPage extends Component {
             this.setState({
                 submitted: true
             })
-            setTimeout(() => this.returnHome(), 2000);
+            axios.post(videosUrl, {
+                title: this.state.title,
+                description: this.state.description
+            })
+                .then(_res => {
+                    setTimeout(() => this.returnHome(), 2000);
+                })
+                .catch(err => {
+                    console.error('unable to post video', err)
+                })
+
         } else {
             !e.target.title.value ? this.titleIsInvalid() : this.titleIsValid();
             !e.target.description.value ? this.descriptionIsInvalid() : this.descriptionIsValid();

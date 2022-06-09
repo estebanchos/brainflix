@@ -3,7 +3,7 @@ import Button from '../Button/Button';
 import addIcon from '../../assets/images/icons/add-comment.svg'
 import './Form.scss';
 import { Component } from 'react';
-import { apiKey, videosUrl } from '../../utils/api';
+import { videosUrl } from '../../utils/api';
 import axios from 'axios';
 
 class Form extends Component {
@@ -36,23 +36,23 @@ class Form extends Component {
 
     handleSubmit = (e) => {
         const { refreshComments, activeVideoId } = this.props
-        const postUrl = `${videosUrl}/${activeVideoId}/comments${apiKey}`
+        const postUrl = `${videosUrl}/${activeVideoId}/comments`
         e.preventDefault()
         if (this.isFormValid()) {
             axios.post(postUrl, {
-                name: 'test',
+                name: 'Dwight K Schrute',
                 comment: this.state.comment
             })
-            .then(res => {
-                refreshComments(videosUrl + '/' + activeVideoId + apiKey)
-                e.target[0].value = ''
-                this.setState({
-                    comment: ''
+                .then(_res => {
+                    refreshComments(videosUrl + '/' + activeVideoId)
+                    e.target[0].value = ''
+                    this.setState({
+                        comment: ''
+                    })
                 })
-            })
-            .catch(err => {
-                console.error('unable to post comment', err)
-            })
+                .catch(err => {
+                    console.error('unable to post comment', err)
+                })
         } else {
             this.inputIsInvalid()
         }

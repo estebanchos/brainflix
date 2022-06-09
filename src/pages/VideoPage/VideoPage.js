@@ -5,7 +5,7 @@ import Comments from '../../components/Comments/Comments';
 import CurrentVideo from '../../components/CurrentVideo/CurrentVideo';
 import CurrentInfo from '../../components/CurrentInfo/CurrentInfo';
 import NextVideos from '../../components/NextVideos/NextVideos';
-import { apiKey, videosUrl } from '../../utils/api';
+import { videosUrl } from '../../utils/api';
 
 class VideoPage extends Component {
     state = {
@@ -15,14 +15,15 @@ class VideoPage extends Component {
     }
 
     componentDidMount() {
-        axios.get(videosUrl + apiKey)
+        axios.get(videosUrl)
             .then(res => {
+                
                 this.setState({
                     videos: res.data,
                     defaultVideoId: res.data[0].id
                 })
                 const id = this.props.match.params.id || res.data[0].id;
-                this.getActiveVideo(videosUrl + '/' + id + apiKey)
+                this.getActiveVideo(videosUrl + '/' + id)
             })
             .catch(err => {
                 console.error('could not complete request:' + err)
@@ -36,15 +37,15 @@ class VideoPage extends Component {
 
         if (prevId !== id) {
             const activeId = id ? id : defaultVideoId;
-            this.getActiveVideo(`${videosUrl}/${activeId}${apiKey}`);
+            this.getActiveVideo(`${videosUrl}/${activeId}`);
         }
     }
 
     deleteComment = (e) => {
         const activeId = this.state.activeVideo.id
-        axios.delete(`${videosUrl}/${activeId}/comments/${e.target.id}${apiKey}`)
+        axios.delete(`${videosUrl}/${activeId}/comments/${e.target.id}`)
             .then(res => {
-                this.getActiveVideo(videosUrl + '/' + activeId + apiKey)
+                this.getActiveVideo(videosUrl + '/' + activeId)
             })
             .catch(err => {
                 console.error("Unable to delete comment:", err)
