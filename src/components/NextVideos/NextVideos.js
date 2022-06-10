@@ -11,8 +11,7 @@ function NextVideos({ activeVideoId, videos }) {
         <section className='next-videos'>
             <h3 className='next-videos__title'>NEXT VIDEOS</h3>
             <ul className='next-videos__list'>
-                {videos.map(video => {
-                    if (video.id !== activeVideoId) {
+                {videos.filter(video => video.id !== activeVideoId).map(video => {
                         return (
                             <Link
                                 className='next-videos__item'
@@ -27,7 +26,6 @@ function NextVideos({ activeVideoId, videos }) {
                                 />
                             </Link>
                         )
-                    }
                 })}
             </ul>
         </section>

@@ -17,13 +17,10 @@ class VideoPage extends Component {
     componentDidMount() {
         axios.get(videosUrl)
             .then(res => {
-                
                 this.setState({
                     videos: res.data,
                     defaultVideoId: res.data[0].id
                 })
-                const id = this.props.match.params.id || res.data[0].id;
-                this.getActiveVideo(videosUrl + '/' + id)
             })
             .catch(err => {
                 console.error('could not complete request:' + err)
@@ -31,7 +28,7 @@ class VideoPage extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { match: { params: { id } } } = this.props;
+        const id = this.props.match.params.id || this.state.videos[0].id;
         const { defaultVideoId } = this.state;
         const prevId = prevProps.match.params.id;
 
