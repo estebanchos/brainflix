@@ -46,6 +46,7 @@
         background-color: $color-secondary-white;
         font-family: 'Avenir';
         height: 6rem;
+        resize: none;
 
         @include tablet {
             height: 2.75rem;
@@ -66,6 +67,7 @@
             background-color: $color-secondary-white;
             font-family: 'Avenir';
             height: 2.75rem;
+            resize: none;
         }
     }
 }
